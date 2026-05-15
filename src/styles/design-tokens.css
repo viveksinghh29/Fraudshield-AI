@@ -1,0 +1,25 @@
+/**
+ * FraudShield AI — design tokens (Stripe / Plaid–inspired enterprise SaaS)
+ * Deep indigo primary, purple accent, semantic fraud / safe / warning.
+ */
+:root {
+  --fs-brand-indigo: #1e3a8a;
+  --fs-brand-indigo-light: #312e81;
+  --fs-accent-purple: #7c3aed;
+  --fs-accent-purple-muted: #a78bfa;
+  --fs-fraud: #dc2626;
+  --fs-fraud-bg: rgba(220, 38, 38, 0.08);
+  --fs-safe: #16a34a;
+  --fs-safe-bg: rgba(22, 163, 74, 0.08);
+  --fs-warning: #ca8a04;
+  --fs-warning-bg: rgba(202, 138, 4, 0.1);
+  --fs-card-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.04);
+  --fs-card-shadow-hover: 0 2px 4px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(30, 58, 138, 0.08);
+  --fs-radius-card: 0.75rem;
+  --fs-font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --fs-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
+  --fs-card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.45), 0 12px 32px rgba(49, 46, 129, 0.15);
+}
