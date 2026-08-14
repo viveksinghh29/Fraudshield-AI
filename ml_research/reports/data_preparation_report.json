@@ -1,0 +1,118 @@
+{
+  "input_path": "/home/claude/fraudshield-ai/ml_research/data/synthetic_creditcard.csv",
+  "raw_summary": {
+    "rows": 20000,
+    "columns": 31,
+    "memory_mb": 4.73,
+    "fraud_count": 34,
+    "legitimate_count": 19966,
+    "fraud_rate_pct": 0.17
+  },
+  "eda": {
+    "row_count": 20000,
+    "column_count": 31,
+    "class_balance": {
+      "fraud": 34,
+      "legitimate": 19966,
+      "fraud_rate_pct": 0.17,
+      "imbalance_ratio": 587.2
+    },
+    "missing_values": {},
+    "total_missing_cells": 0,
+    "duplicate_rows": 0,
+    "amount_stats": {
+      "overall": {
+        "count": 20000,
+        "mean": 42.43,
+        "std": 78.56,
+        "min": 0.12,
+        "p25": 9.03,
+        "median": 20.29,
+        "p75": 45.68,
+        "max": 3613.04
+      },
+      "legitimate": {
+        "count": 19966,
+        "mean": 42.21,
+        "std": 77.85,
+        "min": 0.12,
+        "p25": 9.02,
+        "median": 20.26,
+        "p75": 45.56,
+        "max": 3613.04
+      },
+      "fraud": {
+        "count": 34,
+        "mean": 171.57,
+        "std": 237.24,
+        "min": 5.54,
+        "p25": 19.12,
+        "median": 59.75,
+        "p75": 221.65,
+        "max": 913.49
+      }
+    },
+    "time_stats": {
+      "min": 2.275526512651993,
+      "max": 172796.02912817756,
+      "span_hours": 48.0
+    },
+    "feature_correlation_with_class": {
+      "V28": 0.0521,
+      "V1": 0.0494,
+      "V5": 0.0494,
+      "V17": 0.0475,
+      "V19": 0.0471,
+      "V10": 0.0465,
+      "V12": 0.0424,
+      "V23": 0.041,
+      "V13": 0.0405,
+      "V27": 0.0392
+    }
+  },
+  "cleaning": {
+    "missing_values_imputed": 0,
+    "duplicate_rows_removed": 0,
+    "amount_outliers_flagged": 1893,
+    "amount_outlier_bounds": {
+      "lower": -45.95,
+      "upper": 100.66
+    },
+    "final_row_count": 20000
+  },
+  "feature_engineering": {
+    "scaler_mode": "fit_new",
+    "engineered_columns_added": [
+      "amount_log",
+      "hour_of_day",
+      "amount_scaled",
+      "hour_of_day_scaled"
+    ],
+    "scaler_center": [
+      3.058237478905388,
+      11.0
+    ],
+    "scaler_scale": [
+      1.537788755835634,
+      11.0
+    ]
+  },
+  "split": {
+    "train_rows": 16000,
+    "test_rows": 4000,
+    "train_fraud_count": 27,
+    "test_fraud_count": 7
+  },
+  "smote": {
+    "before": {
+      "0": 15973,
+      "1": 27
+    },
+    "after": {
+      "0": 15973,
+      "1": 7986
+    },
+    "synthetic_samples_created": 7959,
+    "sampling_strategy": 0.5
+  }
+}
