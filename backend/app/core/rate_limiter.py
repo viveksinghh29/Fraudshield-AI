@@ -1,24 +1,4 @@
-"""
-Sliding-window rate limiter backed by Redis, applied as ASGI middleware.
-
-Manages its own Redis connection lazily (first request that needs it
-connects and caches the client on the middleware instance) rather than
-depending on a client reference passed in from outside. This matters:
-an earlier version took `redis_client` as a constructor argument
-supplied from main.py's lifespan-managed client, but `add_middleware()`
-runs at `create_app()` time -- during module import, before the ASGI
-lifespan has ever started -- so that reference was always `None` and
-the limiter silently never limited anything. Verified with a live
-test (15 requests against a limit of 5 all returned 200) before this
-fix, and confirmed blocking correctly after.
-
-Keys by user id when the request carries a valid access token
-(so limits are per-analyst, not per-IP -- one shared office IP
-shouldn't throttle every analyst behind it), falling back to client IP
-for unauthenticated requests. Auth endpoints (login/register) use a
-separate, stricter limit, since a legitimate user never needs dozens
-of login attempts a minute but a credential-stuffing attack does.
-"""
+"""Redis-backed sliding-window rate limiter with per-user/IP and stricter auth limits."""
 
 import time
 

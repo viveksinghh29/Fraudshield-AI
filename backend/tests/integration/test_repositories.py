@@ -1,8 +1,4 @@
-"""
-Integration tests for the repository layer — run against a real
-Postgres database (see tests/integration/conftest.py), not mocks.
-Each test is wrapped in a rollback so it never leaves data behind.
-"""
+"""Integration tests for repositories using real Postgres with rollback-isolated test data."""
 
 from datetime import datetime, timezone
 

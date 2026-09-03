@@ -1,8 +1,4 @@
-"""
-Exploratory Data Analysis — produces a structured, JSON-serializable
-report rather than notebook cell output, so it can be surfaced through
-an API endpoint or archived alongside a trained model version.
-"""
+"""Generates structured, JSON-serializable EDA reports for APIs and model version archives."""
 
 from typing import Any
 

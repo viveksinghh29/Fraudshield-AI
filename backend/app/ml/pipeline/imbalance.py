@@ -1,12 +1,6 @@
 """
 Class imbalance handling via SMOTE.
 
-Applied ONLY to the training split, never to test data -- generating
-synthetic minority-class points that "leak" into the test set (by
-interpolating between train and test fraud examples, or by evaluating
-on synthetic rather than real fraud cases) inflates test metrics in a
-way that will not hold up on genuinely new transactions. This module
-takes X_train/y_train explicitly and has no path that touches test data.
 """
 
 from typing import Any

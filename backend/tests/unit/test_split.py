@@ -1,11 +1,4 @@
-"""
-Unit tests for app.ml.pipeline.split.
-
-The overlap tests here are the direct check for the leakage class the
-user asked about: if any row (by exact content) appeared in more than
-one split, that would mean the "unseen" test set wasn't actually
-unseen. These tests fail loudly if that's ever true.
-"""
+"""Unit tests for data splitting that verify no rows overlap across train, validation, and test sets."""
 
 import pandas as pd
 

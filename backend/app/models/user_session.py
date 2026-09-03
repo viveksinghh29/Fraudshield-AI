@@ -1,9 +1,5 @@
 """
 UserSession model — tracks refresh-token sessions for JWT auth.
-
-Storing a hash of the refresh token (never the raw token) lets the
-auth service (Phase 4) revoke individual sessions and support
-"log out of all devices" without keeping secrets in the DB.
 """
 
 import uuid

@@ -1,6 +1,4 @@
-"""
-Unit tests for app.core.security — no DB, no FastAPI, pure functions.
-"""
+"""Unit tests for app.core.security — no DB, no FastAPI, pure functions."""
 
 import uuid
 

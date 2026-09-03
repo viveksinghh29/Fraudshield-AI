@@ -1,16 +1,4 @@
-"""
-ModelService — resolves "the currently active model" to a loaded,
-ready-to-use Predictor, cached in-process so repeated prediction
-requests don't re-deserialize the joblib artifact from disk every time.
-
-The cache is keyed by model_version_id: each call does one cheap DB
-query to check which version is active, and only reloads the artifact
-from disk if that id has changed since the last call (e.g. an admin
-just activated a newly trained model via /model/activate in a later
-phase). This keeps hot-path prediction requests fast while still
-picking up a newly activated model without requiring an app restart.
-"""
-
+"""Resolves and caches the active model Predictor, reloading only when the active model version changes."""
 import uuid
 
 from sqlalchemy.ext.asyncio import AsyncSession

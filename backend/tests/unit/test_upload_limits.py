@@ -1,6 +1,5 @@
 """
-Unit tests for _read_upload_bounded and the row-count limit logic in
-the transactions upload router.
+Unit tests for _read_upload_bounded and the row-count limit logic in the transactions upload router.
 """
 
 import io

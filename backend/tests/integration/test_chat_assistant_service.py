@@ -1,9 +1,4 @@
-"""
-Integration tests for ChatAssistantService -- real DB, real
-PredictionService/ExplanationService/repositories, with only the LLM
-call itself replaced by a fake provider (there's no real LLM to call
-in this sandbox; everything else in the path is real).
-"""
+"""Integration tests for ChatAssistantService using a real DB and services with a fake LLM provider."""
 
 from datetime import datetime, timezone
 

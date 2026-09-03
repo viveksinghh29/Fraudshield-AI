@@ -1,20 +1,4 @@
-"""
-Model registry — the bridge between a trained model in memory and:
-  (a) a versioned .joblib artifact on disk, and
-  (b) a row in the `model_versions` table (Phase 3) that the rest of
-      the application queries to find out which model is active.
-
-Bundling the model, its feature column order, its optimal decision
-threshold, its fitted scaler, AND a SHAP background sample into one
-artifact means the inference engine (Phase 8) only has to load one
-file to reproduce training-time behavior exactly -- including feature
-engineering and explanations. This matters more than it might look:
-the scaler was previously saved as a separate file with no link to a
-specific model version, which meant retraining (a new scaler fit on
-new data) had no way to guarantee the right scaler was paired with
-the right model at serve time. Bundling them together removes that
-whole class of mismatch by construction.
-"""
+"""Manages versioned model artifacts, metadata, thresholds, scalers, and SHAP data for consistent inference."""
 
 import uuid
 from datetime import datetime, timezone

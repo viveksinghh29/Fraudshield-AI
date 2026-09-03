@@ -1,22 +1,4 @@
-"""
-Guardrails against prompt injection.
-
-Two directions matter here:
-  1. INPUT: an analyst's chat message could contain text engineered to
-     override the system prompt ("ignore previous instructions...").
-     `sanitize_user_input()` flags obvious patterns before the message
-     ever reaches the LLM.
-  2. OUTPUT: the assistant must never assert something the grounding
-     context doesn't support. `check_response_grounding()` is a
-     best-effort heuristic check -- it can't guarantee zero
-     hallucination (nothing short of the LLM's own reasoning can), but
-     it catches the clearest failure mode: the response naming a
-     feature (V1-V28) that was never in the context it was given.
-
-Neither of these is a substitute for a well-constructed system prompt
-that constrains the model in the first place (see prompt_templates.py)
--- they're a second layer, not the only layer.
-"""
+"""Guards against prompt injection and unsupported LLM outputs as a second layer beyond system-prompt constraints."""
 
 import re
 

@@ -1,12 +1,4 @@
-"""
-Model evaluation on held-out test data.
-
-Threshold optimization is deliberately a separate function from the
-default 0.5-cutoff metrics: reporting both lets the comparison table
-show "how the model does out of the box" alongside "how it does once
-tuned for this business's precision/recall tradeoff", rather than
-silently only ever reporting the tuned number.
-"""
+"""Evaluates models on held-out data with both default and optimized decision thresholds."""
 
 from typing import Any
 

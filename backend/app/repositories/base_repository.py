@@ -1,10 +1,5 @@
 """
 Generic base repository — typed CRUD + pagination over any ORM model.
-
-Every entity-specific repository extends this rather than reimplementing
-get/list/create/update/delete. This is what lets services depend on an
-abstraction instead of raw SQLAlchemy queries, and what lets tests swap
-in a SQLite in-memory session without touching business logic.
 """
 
 import uuid

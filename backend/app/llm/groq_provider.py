@@ -1,10 +1,5 @@
 """
 Groq provider — Groq's OpenAI-compatible /chat/completions endpoint.
-
-Implemented directly with httpx (same pattern as OllamaProvider)
-rather than the groq SDK, so all three providers share one consistent
-request/response handling style and the endpoint is overridable for
-testing without needing to fight the SDK's own client configuration.
 """
 
 import httpx

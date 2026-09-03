@@ -1,8 +1,5 @@
 """
 Async SQLAlchemy engine and session factory.
-
-Exposes `get_db`, a FastAPI dependency that yields a scoped
-AsyncSession per request and guarantees it is closed afterward.
 """
 
 from collections.abc import AsyncGenerator

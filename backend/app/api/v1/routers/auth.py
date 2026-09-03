@@ -1,9 +1,5 @@
 """
 Authentication endpoints.
-
-Thin per the architecture rules: validate request shape, extract
-client metadata (IP/user-agent), delegate everything else to
-AuthService, translate domain exceptions via the global handler.
 """
 
 from fastapi import APIRouter, Depends, Request, status

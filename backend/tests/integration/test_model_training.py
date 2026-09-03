@@ -1,8 +1,4 @@
-"""
-Integration tests for train_and_compare_all + the model registry.
-Uses a small, cleanly-separable synthetic dataset so RandomForest/
-GradientBoosting/XGBoost/LightGBM all fit quickly under test.
-"""
+"""Integration tests for model training, comparison, and registry using a fast synthetic dataset."""
 
 import numpy as np
 import pandas as pd

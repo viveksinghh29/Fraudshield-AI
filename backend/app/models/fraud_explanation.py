@@ -1,12 +1,5 @@
 """
 FraudExplanation model — one-to-one with Prediction.
-
-Stores raw SHAP output (per-feature values + base value) as JSONB so
-the explainability layer (Phase 7) and the Analyst AI Assistant
-(Phase 10) can both read structured, queryable data rather than a
-pre-rendered plot. `narrative_summary` caches the LLM's plain-language
-explanation so repeat questions about the same transaction don't
-re-invoke the LLM provider.
 """
 
 import uuid

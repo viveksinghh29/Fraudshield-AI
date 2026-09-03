@@ -1,44 +1,63 @@
 # Manual Verification Utilities
 
-This directory holds test utilities that are **not** part of the pytest
-suite (`tests/unit/`, `tests/integration/`) — they were used for one-off
-live verification of the full HTTP stack in an environment with no
-network access to Ollama, Groq, or OpenAI.
+This directory contains utilities for **manual end-to-end verification** that are separate from the automated pytest suite.
+
+These scripts were used to verify the full HTTP stack in environments without network access to Ollama, Groq, or OpenAI.
 
 ## `mock_llm_server.py`
 
-A minimal FastAPI app mimicking Ollama's `/api/chat` and the OpenAI-
-compatible `/chat/completions` response shapes, closely enough to
-genuinely exercise the real provider code (`OllamaProvider`,
-`GroqProvider`, `OpenAICompatibleProvider`) end-to-end over a real
-HTTP round trip.
+A lightweight FastAPI mock server that reproduces the response formats of:
 
-This is **not** what the automated `httpx.MockTransport`-based tests in
-`tests/unit/test_llm_providers.py` use — those are self-contained and
-don't need a separate running process. This script was used for one
-additional, higher-confidence check: pointing the *entire running app*
-at it (`LLM_PROVIDER=ollama`, `OLLAMA_BASE_URL=http://127.0.0.1:9501`)
-and confirming a real `POST /chat` request flows correctly through
-every layer — API → ChatAssistantService → ExplanationService →
-context_builder → a genuine network call — and back.
+* Ollama `/api/chat`
+* OpenAI-compatible `/chat/completions`
 
-To reproduce:
+It allows the real LLM provider implementations to be tested over an actual HTTP connection without requiring an external LLM service.
+
+### What it verifies
+
+The mock server can validate the complete request flow:
+
+```text
+API
+ ↓
+ChatAssistantService
+ ↓
+ExplanationService
+ ↓
+Context Builder
+ ↓
+LLM Provider
+ ↓
+HTTP Request
+ ↓
+Mock LLM Server
+ ↓
+Response Parsing
+ ↓
+Persistence
+```
+
+This provides an additional end-to-end check beyond the unit tests that use `httpx.MockTransport`.
+
+### Run
+
+**Terminal 1 — Start mock LLM server**
+
 ```bash
-# terminal 1
 uvicorn tests.manual_verification.mock_llm_server:app --port 9501
+```
 
-# terminal 2
+**Terminal 2 — Configure and start the application**
+
+```bash
 export LLM_PROVIDER=ollama
 export OLLAMA_BASE_URL=http://127.0.0.1:9501
+
 uvicorn app.main:app --port 8000
 ```
 
-Then `POST /api/v1/chat` as normal — the mock server's reply will
-confirm exactly how many characters of grounded system-prompt context
-it received, proving the grounding pipeline actually ran.
+Then send a normal `POST /api/v1/chat` request.
 
-**This verifies plumbing, not response quality.** It says nothing about
-how a real Ollama/Groq/OpenAI model would actually answer — only that
-the request reaches the provider correctly formatted and the response
-is parsed and persisted correctly. Point `LLM_PROVIDER` at a real
-backend to evaluate actual answer quality.
+The mock response confirms that the request reached the provider with the expected grounded context and that the response was correctly parsed and persisted.
+
+> **Note:** This verifies integration and request/response plumbing, not LLM response quality. Actual answer quality must be evaluated using a real Ollama, Groq, or OpenAI-compatible model.

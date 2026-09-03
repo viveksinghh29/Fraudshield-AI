@@ -1,10 +1,5 @@
 """
 Prediction model — one row per model inference run against a transaction.
-
-Risk level is derived (not user-set) from fraud_probability by the
-PredictionService (Phase 8) using configurable thresholds, and stored
-alongside the raw probability so dashboard queries don't need to
-recompute bucket boundaries on every read.
 """
 
 import enum

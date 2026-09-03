@@ -1,11 +1,4 @@
-"""
-Application configuration.
-
-All runtime configuration is sourced from environment variables via
-Pydantic Settings. Nothing here should be hardcoded for a specific
-environment (dev/staging/prod) — see `.env.example` for the full list
-of variables this application expects.
-"""
+"""User management endpoints with authenticated access and admin-only controls."""
 
 from functools import lru_cache
 from typing import Literal

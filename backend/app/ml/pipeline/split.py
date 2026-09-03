@@ -1,24 +1,5 @@
 """
 Data splitting.
-
-`three_way_split_raw` is the split that matters for leakage prevention:
-it runs on the raw/cleaned dataframe BEFORE any statistic-fitting step
-(imputation medians, outlier IQR bounds, the RobustScaler) touches the
-data. Everything downstream -- cleaning, feature engineering -- must
-fit on the resulting train portion only and *apply* (never refit) to
-val/test, exactly the same way the trained model is applied to val/test.
-
-Three splits, not two:
-  - train: used to fit the scaler/imputer AND to fit the model (after SMOTE)
-  - val:   untouched by SMOTE, used only to pick the decision threshold
-  - test:  touched by nothing except the already-fitted scaler/model;
-           used exactly once, for final reported metrics
-
-Using a validation split for threshold selection (instead of the test
-set) is what keeps the final test-set metrics an honest estimate of
-generalization -- if the threshold were tuned on the test set itself,
-the reported "optimized" precision/recall/F1 would be biased optimistic,
-even though the underlying formulas are correct.
 """
 
 import pandas as pd

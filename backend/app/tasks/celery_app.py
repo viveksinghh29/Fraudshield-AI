@@ -1,10 +1,5 @@
 """
 Celery application instance.
-
-Task modules (e.g. `batch_prediction_task.py`) are registered here via
-`include=` once batch prediction is implemented in Phase 8. This file
-is fully functional now so `docker-compose up` can start the worker
-process at scaffold stage without errors, even with zero tasks defined.
 """
 
 from celery import Celery

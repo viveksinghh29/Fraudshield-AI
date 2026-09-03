@@ -1,11 +1,5 @@
 """
 Hyperparameter tuning via Optuna.
-
-Optimizes PR-AUC (not accuracy, not even ROC-AUC) under stratified
-cross-validation on the training split, because PR-AUC is the metric
-that stays meaningful under heavy class imbalance -- ROC-AUC can look
-deceptively good on a ~0.17%-fraud dataset even for a fairly weak
-model, since the true-negative rate dominates it.
 """
 
 from typing import Any

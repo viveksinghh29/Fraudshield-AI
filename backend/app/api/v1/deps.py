@@ -1,11 +1,4 @@
-"""
-Shared FastAPI dependencies — DB session injection (already in db/session.py),
-current-user resolution from JWT, and role-based access guards.
-
-Routers depend on `require_role(...)` rather than checking `user.role`
-manually, so RBAC rules are declared once, at the route signature,
-and stay consistent across the whole API surface.
-"""
+"""Shared FastAPI dependencies for JWT users, DB sessions, and consistent role-based access control."""
 
 import uuid
 

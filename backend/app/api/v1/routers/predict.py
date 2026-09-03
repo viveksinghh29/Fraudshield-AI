@@ -1,8 +1,4 @@
-"""
-Prediction endpoints: single transaction prediction, and triggering
-batch prediction over an already-uploaded batch (see
-POST /transactions/upload for the upload step itself).
-"""
+"""Prediction endpoints for single transactions and uploaded batch predictions."""
 
 import uuid
 

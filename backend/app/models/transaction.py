@@ -1,12 +1,4 @@
-"""
-Transaction model — stores the Kaggle-schema fields (Time, Amount, V1-V28)
-plus provenance metadata (who uploaded it, which batch it belongs to).
-
-V1-V28 are the anonymized PCA features from the source dataset. Each
-is written out explicitly as its own mapped column (not packed into a
-JSON blob) so they stay individually queryable and so the ML engine
-can pull a clean ordered feature vector straight off the ORM object.
-"""
+"""Stores transaction data and provenance, with V1-V28 as individually queryable ORM fields."""
 
 import uuid
 from typing import TYPE_CHECKING

@@ -1,10 +1,4 @@
-"""
-Aggregates all v1 routers into a single APIRouter mounted by main.py.
-
-Routers for auth, users, predict, transactions, explain, chat,
-dashboard, analytics, model, and audit-logs are added here as each
-is implemented in later phases. Only `health` exists at this stage.
-"""
+"""Aggregates all v1 routers into a single APIRouter mounted by main.py."""
 
 from fastapi import APIRouter
 

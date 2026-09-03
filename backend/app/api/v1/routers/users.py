@@ -1,9 +1,4 @@
-"""
-User management endpoints.
-
-`/users/me` is available to any authenticated user. The list/detail/
-deactivate endpoints are admin-only via `require_role(UserRole.ADMIN)`.
-"""
+"""User management endpoints with authenticated access and admin-only controls."""
 
 import uuid
 

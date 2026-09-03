@@ -1,11 +1,4 @@
-"""
-PredictionService — orchestrates a single transaction prediction:
-persist the transaction, run inference via the active model
-(ModelService), persist the prediction, audit-log the event.
-
-Business logic lives here, not in the router (predict.py), per the
-Clean Architecture rules from Phase 1.
-"""
+"""Orchestrates transaction prediction, persistence, model inference, and audit logging."""
 
 import uuid
 from typing import Any

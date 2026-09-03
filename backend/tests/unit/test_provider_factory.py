@@ -1,16 +1,4 @@
-"""
-Unit tests for app.llm.provider_factory.get_llm_provider().
-
-Mutates the cached Settings singleton's attributes directly rather
-than reloading modules -- get_settings() is @lru_cache'd, so every
-module that did `settings = get_settings()` at import time holds a
-reference to the exact same object; mutating its attributes propagates
-everywhere instantly. Tried importlib.reload() first, but that creates
-new class objects distinct from what this test file already imported,
-which breaks isinstance() checks in a confusing way (an object that IS
-an OpenAICompatibleProvider fails isinstance() against a stale class
-reference) -- direct attribute mutation avoids that pitfall entirely.
-"""
+"""Unit tests for the LLM provider factory using direct mutation of the cached Settings singleton."""
 
 import pytest
 

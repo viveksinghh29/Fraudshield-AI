@@ -1,8 +1,5 @@
 """
 AuthService — orchestrates registration, login, token refresh, and logout.
-
-Business rules live here, not in the router. The router only validates
-the request shape and calls these methods.
 """
 
 import hashlib

@@ -1,12 +1,4 @@
-"""
-Model candidate factory — one place that knows how to construct each
-of the five algorithms this project compares, with class-imbalance-
-aware defaults where the library supports them natively (in addition
-to the SMOTE resampling already applied to the training data in
-Phase 5 — the two are complementary, not redundant: `class_weight`/
-`scale_pos_weight` further penalizes majority-class errors on top of
-a training set that's already been rebalanced).
-"""
+"""Centralized factory for five class-imbalance-aware model candidates with consistent defaults."""
 
 from typing import Any
 

@@ -1,11 +1,4 @@
-"""
-Shared helper for API-level tests that need an active model registered
-(predict, explain, model info, dashboard/analytics all depend on one
-existing). Extracted here since test_prediction_service.py and
-test_chat_assistant_service.py each had their own near-identical copy
-of this setup -- consolidated during Phase 15 QA to avoid drift
-between copies.
-"""
+"""Shared API test helper for registering an active model required by prediction, explanation, and analytics tests."""
 
 import uuid
 

@@ -1,12 +1,4 @@
-"""
-Provider tests using httpx.MockTransport.
-
-This exercises the REAL request-construction and response-parsing code
-paths in each provider -- the mock only replaces the actual network
-socket, not any of the provider's own logic. This is what actually
-verifies "does OllamaProvider build the right JSON body and correctly
-extract the reply" rather than assuming it from reading the code.
-"""
+"""Provider tests using MockTransport to verify real request construction and response parsing."""
 
 import httpx
 import pytest

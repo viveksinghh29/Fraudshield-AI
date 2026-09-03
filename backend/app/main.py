@@ -1,9 +1,4 @@
-"""
-FastAPI application factory.
-
-Wires together middleware, exception handlers, and versioned routers.
-Business logic never lives here — this module is purely composition.
-"""
+"""FastAPI application factory that composes middleware, handlers, and versioned routers."""
 
 import logging
 import time

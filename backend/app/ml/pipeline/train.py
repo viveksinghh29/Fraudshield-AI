@@ -1,14 +1,5 @@
 """
-Training orchestrator — the Phase 6 entry point.
-
-Runs: prepare_data (Phase 5) -> hyperparameter tuning (Optuna, one
-study per candidate) -> train + compare all 5 candidates on their
-tuned params -> select the best -> persist the artifact -> register
-it in the model_versions table (Phase 3) as the new active model.
-
-Usage:
-    python -m app.ml.pipeline.train --input path/to/creditcard.csv
-    python -m app.ml.pipeline.train --input ... --n-trials 5 --skip-tuning
+Training orchestrator
 """
 
 import argparse

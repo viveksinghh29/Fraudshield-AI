@@ -1,11 +1,5 @@
 """
 ChatHistory model — one row per turn in the Analyst AI Assistant chat.
-
-`context_snapshot` stores the exact grounding context (prediction +
-SHAP + transaction data) that was fed to the LLM for that turn. This
-is what makes the assistant auditable: for any past answer, an admin
-can see precisely what data justified it, rather than trusting the
-LLM's output on faith.
 """
 
 import enum

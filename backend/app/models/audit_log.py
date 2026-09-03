@@ -1,12 +1,4 @@
-"""
-AuditLog model — append-only trail of security-relevant and
-business-relevant events (logins, predictions created, model
-activations, CSV uploads, etc).
-
-Written by a dedicated AuditRepository from within services, never
-directly from routers, so every entry point is guaranteed to log
-consistently.
-"""
+"""Append-only audit trail for security and business events, managed consistently through services."""
 
 import uuid
 from typing import TYPE_CHECKING

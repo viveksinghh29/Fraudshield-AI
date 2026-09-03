@@ -1,8 +1,4 @@
-"""
-Pytest fixtures for integration tests — real async engine/session against
-the Postgres instance defined by the environment (no mocking of the DB
-layer; these tests catch real SQL/mapping bugs).
-"""
+"""Pytest fixtures for integration tests using a real async Postgres database."""
 
 import asyncio
 from collections.abc import AsyncGenerator

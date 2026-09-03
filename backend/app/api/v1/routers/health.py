@@ -1,9 +1,4 @@
-"""
-Liveness / readiness probe endpoint.
-
-Public, unauthenticated, excluded from rate limiting. Used by Docker
-healthchecks, load balancers, and uptime monitors.
-"""
+"""Public liveness/readiness probe for Docker, load balancers, and uptime monitoring."""
 
 from fastapi import APIRouter, status
 from sqlalchemy import text

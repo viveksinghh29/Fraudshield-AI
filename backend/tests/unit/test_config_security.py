@@ -1,14 +1,6 @@
 """
 Unit tests for the SECRET_KEY production-safety validator in
 app.core.config.Settings.
-
-Regression coverage for a real bug found during Phase 14 hardening:
-the first implementation referenced an underscore-prefixed class
-attribute from inside a classmethod validator, which Pydantic's
-BaseModel silently reinterprets as a private-attribute descriptor
-rather than a plain constant, raising a TypeError instead of doing
-the intended check. Fixed by moving the placeholder set to a module-
-level constant.
 """
 
 import os

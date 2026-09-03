@@ -1,12 +1,6 @@
 """
 API-level tests for the batch prediction flow: CSV upload ->
 POST /predict/batch -> GET /predict/batch/{id}/status.
-
-Celery's `task_always_eager` mode runs the task synchronously in-process
-instead of requiring a real broker/worker -- the standard way to test
-Celery-backed endpoints without standing up actual infrastructure.
-Everything else in the path (the route, the task's own DB/model logic)
-is exercised for real; only the broker hop is short-circuited.
 """
 
 import io

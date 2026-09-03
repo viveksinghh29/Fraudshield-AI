@@ -1,9 +1,4 @@
-"""
-Integration test for the full prepare_data() orchestration -- proves,
-end to end, that the scaler is fit on the train split only (not the
-full dataset), which is the exact leakage bug this suite guards
-against regressing back to.
-"""
+"""Integration test for prepare_data() verifying the scaler fits only on training data."""
 
 import numpy as np
 import pandas as pd

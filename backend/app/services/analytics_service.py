@@ -1,10 +1,6 @@
 """
 AnalyticsService — aggregate KPIs for the dashboard and deeper
 analytics (fraud trend, risk distribution, confidence stats).
-
-All aggregation happens in the repository layer via SQL (COUNT, AVG,
-GROUP BY) rather than pulling every row into Python -- this keeps the
-dashboard fast regardless of how many predictions have accumulated.
 """
 
 from typing import Any

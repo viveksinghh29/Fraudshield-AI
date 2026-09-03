@@ -1,8 +1,5 @@
 """
 Structured logging configuration.
-
-Emits JSON logs in production-like environments (easy to ingest into
-ELK / CloudWatch / Datadog) and human-readable logs in development.
 """
 
 import logging

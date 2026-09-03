@@ -1,10 +1,4 @@
-"""
-Provider factory — reads LLM_PROVIDER from settings and returns the
-matching provider instance. This is the one place that switches on
-provider choice; everything else in the app depends on the LLMProvider
-interface only, so adding a fourth provider later means adding one
-branch here and nothing else.
-"""
+"""Creates the configured LLM provider from settings while keeping provider selection centralized."""
 
 from app.core.config import get_settings
 from app.llm.base_provider import LLMProvider

@@ -1,8 +1,4 @@
-"""
-TransactionService — read-side queries for transaction history and
-detail views. No mutation logic here; transactions are only ever
-created via PredictionService (single) or the upload router (batch).
-"""
+"""Provides read-only transaction history and detail queries without mutation logic."""
 
 import uuid
 from typing import Any

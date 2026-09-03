@@ -1,13 +1,5 @@
 """
 Tests for RateLimiterMiddleware.
-
-These build a minimal real FastAPI app with the middleware attached
-and drive it with httpx's ASGITransport -- genuinely exercising the
-ASGI middleware stack (not just calling dispatch() directly), which is
-exactly the layer where the original bug lived: exceptions raised from
-middleware added via app.add_middleware() don't reach FastAPI's
-@app.exception_handler decorators, something a direct unit test of
-dispatch() alone would never have caught.
 """
 
 import pytest

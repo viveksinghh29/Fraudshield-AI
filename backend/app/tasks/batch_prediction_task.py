@@ -1,12 +1,4 @@
-"""
-Celery task: batch prediction over an already-uploaded batch of
-transactions (see POST /transactions/upload and POST /predict/batch).
-
-The app is async-first (async SQLAlchemy, async FastAPI routes), but
-Celery tasks are synchronous entry points. `asyncio.run()` bridges the
-two here -- safe because each task invocation gets its own worker
-process/thread with no pre-existing event loop to conflict with.
-"""
+"""Celery task for batch prediction, bridging synchronous workers with the app's async database layer."""
 
 import asyncio
 import uuid

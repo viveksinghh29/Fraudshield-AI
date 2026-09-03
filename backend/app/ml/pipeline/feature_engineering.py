@@ -1,25 +1,4 @@
-"""
-Feature engineering.
-
-The V1-V28 columns are already PCA-transformed by the dataset's
-original authors and are left untouched (re-scaling already-whitened
-PCA components would just undo that work). Engineering effort goes
-into `Time` and `Amount`, the two raw, unscaled columns:
-
-- Amount is heavily right-skewed (most transactions are small, fraud
-  and legitimate both have a long tail) -> log1p transform.
-- Time is "seconds since the first transaction in the dataset" and
-  not directly meaningful -> converted to an hour-of-day bucket, which
-  captures a real behavioral signal (fraud timing patterns) that raw
-  elapsed seconds doesn't.
-- Both the log-amount and the hour bucket are then scaled with
-  RobustScaler (median/IQR-based), which is less sensitive to the
-  remaining outliers than StandardScaler's mean/variance.
-
-The fitted scaler is returned alongside the transformed data because
-it must be reused, unchanged, at inference time (Phase 8) — fitting a
-new scaler on a single incoming transaction would be meaningless.
-"""
+"""Transforms Amount and Time into robust-scaled features while preserving PCA components and the fitted scaler."""
 
 from typing import Any
 

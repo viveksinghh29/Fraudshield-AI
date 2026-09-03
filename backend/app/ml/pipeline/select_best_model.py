@@ -1,19 +1,5 @@
 """
 Model comparison and automatic best-model selection.
-
-Threshold selection uses the VALIDATION split, never the test split --
-picking a cutoff that maximizes F1 directly on the test set would let
-the test set influence the model's operating point before it's ever
-used for a supposedly-unbiased final evaluation. The test set is only
-touched once per model, at the very end, to report metrics at the
-threshold that validation already chose.
-
-Selection criterion: primarily PR-AUC (the right metric under this
-much imbalance), with recall as an explicit tie-breaker within a small
-PR-AUC margin -- for fraud detection, missing fraud (false negatives)
-is typically costlier than a false alarm an analyst has to dismiss, so
-between two models with near-identical PR-AUC, the one that catches
-more fraud wins.
 """
 
 from typing import Any

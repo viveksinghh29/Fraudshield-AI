@@ -1,22 +1,6 @@
 """
 Data cleaning — missing value handling, duplicate removal, and outlier
 flagging.
-
-Fit/apply pattern (mirrors feature_engineering.py's scaler reuse):
-imputation medians and outlier IQR bounds are *statistics learned from
-data*, exactly like a scaler's center/scale. Computing them on the
-full dataset before a train/test split leaks test-set information into
-how training rows get cleaned. `clean_data()` therefore fits these
-statistics only when `impute_medians`/`outlier_bounds` aren't passed
-in (the train-split call), and reuses them unchanged otherwise (the
-val/test-split calls) -- the same discipline already used for the
-RobustScaler in feature_engineering.py.
-
-Outliers are flagged, not dropped: in fraud detection, extreme values
-in Amount are often exactly the signal worth keeping (large fraudulent
-transactions are still fraud). Removing them would throw away the
-positive class's most informative rows. They're tagged in a column so
-downstream feature engineering can use the flag if useful.
 """
 
 from typing import Any

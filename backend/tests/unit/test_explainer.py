@@ -1,10 +1,5 @@
 """
 Unit tests for app.ml.engine.explainer.FraudExplainer.
-
-The additivity tests are the ones that actually matter: they prove
-SHAP's base_value + sum(shap_values) reconstructs the model's own
-prediction, which is the mathematical guarantee that makes an
-attribution trustworthy rather than decorative.
 """
 
 import numpy as np

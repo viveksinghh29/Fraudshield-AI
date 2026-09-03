@@ -1,8 +1,4 @@
-"""
-API-level tests for /predict, /transactions, /explain, /model -- real
-HTTP requests against the actual app, with a real active model
-registered via the shared _model_helpers.register_quick_active_model.
-"""
+"""API tests for prediction, transactions, explanations, and model endpoints using a real active model."""
 
 import uuid
 

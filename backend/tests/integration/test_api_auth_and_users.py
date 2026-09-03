@@ -1,9 +1,4 @@
-"""
-API-level tests for /auth and /users -- real HTTP requests against the
-actual FastAPI app (see api_client fixture), not just service-layer
-unit tests. This is what actually proves the routers, dependency
-injection, and exception handlers work together correctly.
-"""
+"""API tests for /auth and /users using real HTTP requests to verify routing, dependencies, and error handling."""
 
 import uuid
 

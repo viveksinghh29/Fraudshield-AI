@@ -1,9 +1,4 @@
-"""
-API-level tests for /chat -- real HTTP requests against the actual
-app, with the LLM provider swapped for a fake via app.dependency_overrides
-(this is exactly why chat.py's get_llm_provider_dependency was
-refactored into a proper FastAPI dependency during Phase 15).
-"""
+"""API tests for /chat using real HTTP requests and a mocked LLM provider via dependency overrides."""
 
 import uuid
 

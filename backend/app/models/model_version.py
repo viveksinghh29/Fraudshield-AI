@@ -1,12 +1,5 @@
 """
 ModelVersion model — the model registry.
-
-Exactly one row should have `is_active=True` at any time; this is
-enforced at the service layer (Phase 7's `ModelService.activate()`
-deactivates the previous active row inside the same transaction)
-rather than a DB constraint, since some databases make a true
-"at most one True" constraint awkward without a partial unique index.
-A partial unique index is added in the migration for defense in depth.
 """
 
 from datetime import datetime

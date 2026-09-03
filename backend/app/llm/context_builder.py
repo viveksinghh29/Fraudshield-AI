@@ -1,16 +1,4 @@
-"""
-Context builder — assembles the structured, factual context the LLM
-is constrained to answer from.
-
-This is the actual anti-hallucination mechanism the Phase 1 design
-calls for: the LLM is never asked "why is transaction X fraud?" with
-only its general knowledge. It's given the model's real prediction,
-real probability, real SHAP attributions, and real transaction fields,
-and instructed (via prompt_templates.py's system prompt) to answer
-only from that block. The same context dict is persisted as
-`chat_history.context_snapshot`, so any past answer can be audited
-against exactly what data justified it.
-"""
+"""Builds factual LLM context from predictions, SHAP values, and transaction data to prevent hallucinations and enable auditing."""
 
 from typing import Any
 

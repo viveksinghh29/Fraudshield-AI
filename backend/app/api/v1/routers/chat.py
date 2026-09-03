@@ -1,14 +1,4 @@
-"""
-Analyst AI Assistant chat endpoint.
-
-The LLM provider is resolved fresh per request via the
-get_llm_provider_dependency FastAPI dependency (reads LLM_PROVIDER
-from settings each time, so a config change takes effect without an
-app restart -- consistent with ModelService's approach to the active
-model) rather than called directly inside the route body. Being a
-proper dependency (not a plain function call) means tests can swap in
-a fake provider via app.dependency_overrides instead of monkeypatching
-module internals.
+"""Analyst AI Assistant chat endpoint.
 """
 
 import uuid

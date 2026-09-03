@@ -1,10 +1,4 @@
-"""
-Transaction CSV upload -- validates the file against the Kaggle
-schema (via the same data_loader.py used by the training pipeline,
-require_label=False since inference batches have no ground truth
-Class column), bulk-inserts the rows under one batch_id, and returns
-that batch_id for use with POST /predict/batch.
-"""
+"""Validates and uploads transaction CSVs, stores rows by batch_id, and returns the batch ID."""
 
 import uuid
 from io import BytesIO

@@ -1,9 +1,5 @@
 """
 Security primitives — password hashing and JWT encode/decode.
-
-Kept deliberately free of any DB or FastAPI dependency so it can be
-unit tested in isolation and reused by both the auth service and any
-future CLI/admin tooling.
 """
 
 import uuid

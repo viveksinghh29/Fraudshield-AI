@@ -1,10 +1,4 @@
-"""
-Integration tests for PredictionService -- exercises the real
-Transaction/Prediction persistence path against the live DB, with a
-real (if quickly-trained) model registered as active. This is exactly
-the path that caught the Time/Amount casing bug: a mock-based test
-would never have exercised the real Transaction(**kwargs) call.
-"""
+"""Integration tests for PredictionService using a real DB, persistence path, and active model."""
 
 import uuid
 from datetime import datetime, timezone

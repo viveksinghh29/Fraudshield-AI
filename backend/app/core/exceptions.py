@@ -1,11 +1,5 @@
 """
 Custom exception hierarchy for FraudShield AI.
-
-Services and repositories raise these domain exceptions instead of
-generic Python exceptions or HTTPException directly. A single FastAPI
-exception handler (registered in main.py) translates them into
-consistent JSON error responses at the API boundary. This keeps
-HTTP-status concerns out of the service layer.
 """
 
 

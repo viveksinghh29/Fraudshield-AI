@@ -1,17 +1,4 @@
-"""
-Predictor — the inference engine.
-
-Loads one model artifact bundle (model, feature_columns, optimal
-threshold, scaler, background_sample) and exposes a single method to
-turn a raw transaction (Time, Amount, V1-V28) into a prediction.
-Every piece of the bundle is used exactly the way it was fit at
-training time -- the scaler transforms, never refits; the feature
-column order is enforced before the model ever sees the row.
-
-A `FraudExplainer` is built lazily (only on first use) from the
-bundle's background_sample, since not every prediction request asks
-for an explanation and building the explainer has a small fixed cost.
-"""
+"""Inference engine that loads a model bundle and predicts transactions with consistent preprocessing and lazy SHAP explanations."""
 
 from typing import Any
 

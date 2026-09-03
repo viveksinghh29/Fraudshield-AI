@@ -1,9 +1,5 @@
 """
 Shared mixins for ORM models.
-
-Every table uses a UUID primary key and, where relevant, a
-created_at/updated_at pair. Kept as mixins so the pattern isn't
-duplicated across all eight model files.
 """
 
 import uuid

@@ -1,11 +1,5 @@
 """
 LLMProvider — the interface every LLM backend implements.
-
-Switching providers (Ollama/Groq/OpenAI-compatible) requires only a
-config change (LLM_PROVIDER env var), per the Phase 1 requirement,
-because every provider is called through this exact same shape:
-a list of {role, content} messages plus a system prompt, returning
-plain text. No provider-specific concerns leak into ChatAssistantService.
 """
 
 from abc import ABC, abstractmethod

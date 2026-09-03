@@ -1,22 +1,6 @@
 """
 Data preparation orchestrator — runs load -> EDA -> split -> clean ->
 engineer -> SMOTE as one callable pipeline.
-
-Split happens BEFORE cleaning/feature-engineering are fit. This
-ordering is the whole point: imputation medians, outlier IQR bounds,
-and the RobustScaler are all statistics learned from data, and fitting
-them on anything that includes the test (or validation) split leaks
-that split's information into how the training data gets transformed.
-Every fitted statistic here is fit once, on the train split only, and
-then applied (not refit) to val and test -- the same discipline a
-StandardScaler tutorial would call "fit_transform on train, transform
-on test", just extended to the imputer and outlier-bound step too.
-
-Callable as a script:
-    python -m app.ml.pipeline.prepare_data --input path/to/creditcard.csv
-
-Also callable programmatically (used by train.py in Phase 6, and by
-the pipeline's own tests).
 """
 
 import argparse

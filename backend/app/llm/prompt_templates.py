@@ -1,12 +1,4 @@
-"""
-System prompt templates.
-
-The grounding instruction is the load-bearing part: it tells the model
-explicitly that the structured context block is its ONLY source of
-truth about this transaction, and to say so plainly when a question
-asks for something the context doesn't contain, rather than filling
-the gap with plausible-sounding invention.
-"""
+"""System prompt templates that strictly ground LLM responses in the provided context."""
 
 SYSTEM_PROMPT_TEMPLATE = """You are the Analyst AI Assistant for FraudShield AI, a credit card fraud detection system. You help fraud analysts understand why transactions were flagged, in clear, professional language.
 

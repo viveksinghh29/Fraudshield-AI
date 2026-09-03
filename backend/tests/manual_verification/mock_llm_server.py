@@ -1,18 +1,4 @@
-"""
-Mock LLM server — mimics Ollama's /api/chat and the OpenAI-compatible
-/chat/completions contract, closely enough to genuinely exercise
-OllamaProvider / GroqProvider / OpenAICompatibleProvider's real HTTP
-request construction and response parsing.
-
-This is a TEST UTILITY, not part of the application. It exists because
-this environment has no network access to a real Ollama install or the
-Groq/OpenAI APIs -- see ml_research/README.md for the same class of
-constraint on the Kaggle dataset. It verifies the provider *plumbing*
-(request shape, header handling, response parsing, error handling) is
-correct; it says nothing about real model response *quality*.
-
-Run: uvicorn tests.manual_verification.mock_llm_server:app --port 9501
-"""
+"""Mock LLM server for testing provider HTTP requests, response parsing, and error handling."""
 
 from fastapi import FastAPI, HTTPException, Request
 

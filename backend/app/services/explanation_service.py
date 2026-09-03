@@ -1,12 +1,4 @@
-"""
-ExplanationService — generates (or retrieves a cached) SHAP explanation
-for an existing prediction.
-
-Explanations are expensive-ish relative to a prediction itself (still
-milliseconds, per Phase 7's benchmarks, but not free), so a
-FraudExplanation row is persisted and reused on repeat requests for
-the same prediction rather than recomputed every time.
-"""
+"""Generates or reuses cached SHAP explanations for predictions to avoid repeated computation."""
 
 import uuid
 from typing import Any

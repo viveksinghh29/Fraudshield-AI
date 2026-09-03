@@ -1,11 +1,4 @@
-"""
-OpenAI-compatible provider — for any endpoint implementing the
-OpenAI /chat/completions contract (vLLM, LM Studio, Azure OpenAI's
-compatible mode, self-hosted gateways, etc). Structurally identical
-to GroqProvider (Groq itself is exactly this contract), kept as a
-separate class because its configuration (base_url, api_key, model)
-is fully user-supplied rather than defaulting to one known vendor.
-"""
+"""OpenAI-compatible LLM provider supporting custom base URLs, API keys, and models."""
 
 import httpx
 

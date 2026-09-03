@@ -1,8 +1,6 @@
 """
 User model — fraud analysts, admins, and viewers.
-
 Role-based access control is enforced at the API dependency layer
-(Phase 4); this model just stores the role.
 """
 
 import enum

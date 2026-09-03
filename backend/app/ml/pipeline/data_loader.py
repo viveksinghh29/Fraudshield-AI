@@ -1,13 +1,4 @@
-"""
-Data loader — reads a CSV following the Kaggle Credit Card Fraud schema
-(Time, Amount, V1-V28, Class) and validates it before anything downstream
-touches it.
-
-Deliberately schema-driven rather than hardcoded to one file: any CSV
-with these columns works, which is what lets this same loader serve
-both the original Kaggle dataset and any future re-export with the
-same PCA-feature structure.
-"""
+"""Schema-driven CSV loader that validates Kaggle fraud data before downstream processing."""
 
 from pathlib import Path
 

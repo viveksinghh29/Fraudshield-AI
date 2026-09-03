@@ -1,10 +1,5 @@
 """
 Ollama provider — local/offline LLM via Ollama's /api/chat endpoint.
-
-httpx is used directly rather than a client library so the base URL
-is trivially overridable (constructor arg), which matters for testing
-against a local mock server as well as for pointing at a
-non-default Ollama installation.
 """
 
 import httpx

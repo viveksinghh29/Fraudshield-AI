@@ -1,37 +1,4 @@
-"""
-SHAP explainability engine.
-
-Dispatches to the fast, exact, model-native SHAP algorithm per model
-type rather than always falling back to the slow model-agnostic
-Permutation/Kernel explainer -- verified empirically:
-
-    LogisticRegression via a black-box callable (PermutationExplainer): ~6.8s/instance
-    RandomForest       via a black-box callable (PermutationExplainer): ~0.8s/instance
-    Any tree model     via native TreeExplainer:                        <0.05s/instance
-    LogisticRegression via native LinearExplainer:                      <0.01s/instance
-
-At the scale of one explanation per API request (Phase 9's /explain
-endpoint, and every turn the Analyst AI Assistant grounds itself in),
-that difference is the gap between an instant response and a
-multi-second stall, so native explainers are used unconditionally here.
-
-The tradeoff this creates: SHAP values live in different units
-depending on the underlying model family --
-  - Tree-based models (Random Forest, Gradient Boosting, XGBoost,
-    LightGBM): explained directly in PROBABILITY space
-    (TreeExplainer(..., model_output="probability")), so a SHAP value
-    of +0.05 means "added 5 percentage points to the fraud probability".
-  - Logistic Regression: explained in LOG-ODDS (logit) space, the
-    space linear models are natively additive in. A SHAP value here
-    means "added this many log-odds", not probability points directly.
-
-Every explanation is tagged with `"value_space"` so callers (the
-Analyst AI Assistant's context builder, the API layer) know which
-units they're looking at, and `fraud_probability` is always taken
-directly from the model's own predict_proba() -- never reconstructed
-from SHAP values -- so the headline number shown to an analyst is
-never at risk of an approximation error, regardless of value_space.
-"""
+"""Model-native SHAP engine for fast, exact explanations across tree and linear models."""
 
 from typing import Any
 

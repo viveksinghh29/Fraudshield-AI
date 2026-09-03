@@ -1,9 +1,4 @@
-"""
-ChatAssistantService — orchestrates a single chat turn: sanitize
-input, build grounded context (if a transaction is referenced),
-call the active LLM provider, persist both sides of the turn, and
-return the response with the grounding metadata attached.
-"""
+"""Orchestrates chat turns with input sanitization, grounded context, LLM calls, persistence, and metadata."""
 
 import uuid
 from typing import Any
