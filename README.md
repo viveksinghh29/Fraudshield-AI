@@ -8,21 +8,21 @@ The system supports real-time transaction scoring, batch CSV analysis, model eva
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-* 🔍 **Fraud Detection** — ML-based transaction risk scoring
-* 🧠 **Explainable AI** — SHAP-based explanations for individual predictions
-* 🤖 **AI Analyst Assistant** — Natural-language investigation of flagged transactions
-* 📊 **Fraud Analytics** — Trends, model performance, and transaction history
-* 📁 **Batch Prediction** — Analyze transactions through CSV upload
-* 🔐 **Authentication & Authorization** — JWT-based security
-* 📝 **Audit Logging** — Track predictions and analyst activity
-* 🔌 **Multiple LLM Providers** — Ollama, Groq, and OpenAI-compatible APIs
-* 📈 **Model Evaluation** — Precision, Recall, F1, ROC-AUC, PR-AUC, confusion matrix, and calibration
+* **Fraud Detection** — ML-based transaction risk scoring
+* **Explainable AI** — SHAP-based explanations for individual predictions
+* **AI Analyst Assistant** — Natural-language investigation of flagged transactions
+* **Fraud Analytics** — Trends, model performance, and transaction history
+* **Batch Prediction** — Analyze transactions through CSV upload
+* **Authentication & Authorization** — JWT-based security
+* **Audit Logging** — Track predictions and analyst activity
+* **Multiple LLM Providers** — Ollama, Groq, and OpenAI-compatible APIs
+* **Model Evaluation** — Precision, Recall, F1, ROC-AUC, PR-AUC, confusion matrix, and calibration
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```text
                      ┌──────────────────────┐
@@ -61,7 +61,7 @@ The system supports real-time transaction scoring, batch CSV analysis, model eva
 
 ---
 
-## 🔄 Fraud Detection Workflow
+## Fraud Detection Workflow
 
 ```text
 Transaction
@@ -89,7 +89,7 @@ Natural-Language Investigation
 
 ---
 
-## 🤖 Machine Learning
+## Machine Learning
 
 FraudShield AI evaluates multiple classification models:
 
@@ -114,7 +114,7 @@ This allows analysts to understand **why a transaction was flagged**, rather tha
 
 ---
 
-## 💬 AI Analyst Assistant
+## AI Analyst Assistant
 
 The AI assistant allows analysts to investigate flagged transactions using natural language.
 
@@ -136,7 +136,7 @@ Responses are grounded in the transaction's **actual prediction and SHAP explana
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer                | Technologies                                   |
 | -------------------- | ---------------------------------------------- |
@@ -152,7 +152,7 @@ Responses are grounded in the transaction's **actual prediction and SHAP explana
 
 ---
 
-## 📊 Analytics
+## Analytics
 
 FraudShield AI provides monitoring for:
 
@@ -169,7 +169,7 @@ FraudShield AI provides monitoring for:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 FraudShield-AI/
@@ -191,7 +191,7 @@ FraudShield-AI/
 
 ---
 
-# ⚡ Quick Start
+# Quick Start
 
 ## 1. Clone the Repository
 
@@ -224,11 +224,11 @@ Configure the required database, JWT, Redis, and LLM settings inside:
 backend/.env
 ```
 
-> ⚠️ **Important:** Never commit `.env` files, API keys, passwords, or other secrets to GitHub.
+> **Important:** Never commit `.env` files, API keys, passwords, or other secrets to GitHub.
 
 ---
 
-# 🔵 Running the Backend
+# Running the Backend
 
 Open **Terminal 1**.
 
@@ -268,7 +268,7 @@ Keep Terminal 1 running.
 
 ---
 
-# 🟢 Running the Frontend
+# Running the Frontend
 
 Open **Terminal 2**.
 
@@ -308,7 +308,7 @@ Keep Terminal 2 running.
 
 ---
 
-# ▶️ Run Frontend and Backend Together
+# Run Frontend and Backend Together
 
 FraudShield AI requires **two terminals** during local development.
 
@@ -345,7 +345,7 @@ http://localhost:5173
 
 ---
 
-# 🔐 Authentication
+# Authentication
 
 FraudShield AI uses **JWT-based authentication**.
 
@@ -374,7 +374,7 @@ For local development, create a user through the registration endpoint before lo
 
 ---
 
-# 🧪 Testing
+# Testing
 
 The project includes backend, API, security, and integration tests.
 
@@ -393,7 +393,7 @@ pytest
 
 ---
 
-# 📚 Documentation
+# Documentation
 
 Detailed documentation is available in the `docs/` directory:
 
@@ -406,7 +406,7 @@ Detailed documentation is available in the `docs/` directory:
 
 ---
 
-# 🛠️ Troubleshooting
+# Troubleshooting
 
 ## Backend: `ModuleNotFoundError: No module named 'app'`
 
@@ -469,7 +469,7 @@ in each running terminal.
 
 ---
 
-# 🚀 Future Improvements
+# Future Improvements
 
 * Real-time transaction streaming
 * Advanced model monitoring & drift detection
@@ -484,7 +484,7 @@ in each running terminal.
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Vivek Kumar Singh**
 
